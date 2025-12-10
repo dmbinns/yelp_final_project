@@ -1,0 +1,25 @@
+[build-system]
+requires = ["uv_build >= 0.9.5, <0.10.0"]
+build-backend = "uv_build"
+
+[project]
+name = "yelp-final-project"
+version = "0.1.0"
+description = "Cleaning, analyzing, and visualizing Yelp ice cream shop data for Utah."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent"
+]
+
+dependencies = [
+    "ipykernel>=7.1.0",
+    "jupyter>=1.1.1",
+    "pandas>=2.0.0",
+    "numpy>=1.23.0",
+    "streamlit>=1.40.0",
+    "matplotlib>=3.8.0"
+]
