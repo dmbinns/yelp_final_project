@@ -1,0 +1,19 @@
+---
+title: "Utah Ice Cream Shop Analysis Package"
+---
+
+## Overview
+
+This project analyzes Yelp Ice Cream businesses in Utah County and Salt Lake County
+to explore how **review volume**, **city**, **price** and **delivery** relate to **customer ratings**.
+
+The package provides tools for:
+- Cleaning Yelp API data
+- Analyzing features
+- Analyzing relationships between business characteristics and ratings
+- Visualizing results
+
+## Installation
+
+```bash
+pip install git+https://github.com/dmbinns/yelp_final_project.git
