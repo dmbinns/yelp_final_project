@@ -67,8 +67,8 @@ def main() -> None:
     if show_cleaning:
         st.subheader("Cleaned Data")
         cleaned = clean_data()
-        st.code(cleaned, use_container_width=True)
-        st.caption("Replace clean_data with your real preprocessing logic.")
+        st.dataframe(cleaned, use_container_width=True)
+        st.caption("This is the cleaned dataset after processing.")
 
     if show_analysis:
         st.subheader("Analysis Summaries")
