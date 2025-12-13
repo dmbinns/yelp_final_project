@@ -23,3 +23,7 @@ dependencies = [
     "streamlit>=1.40.0",
     "matplotlib>=3.8.0"
 ]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"

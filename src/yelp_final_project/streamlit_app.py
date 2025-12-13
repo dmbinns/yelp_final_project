@@ -1,5 +1,3 @@
-"""Toy Streamlit app students can customize for STAT 386 projects."""
-
 from __future__ import annotations
 
 import io
@@ -8,8 +6,14 @@ from contextlib import redirect_stdout
 import pandas as pd
 import streamlit as st
 
-from final_project_demo.analysis import add, run_analysis_pipeline
-from final_project_demo.cleaning import run_cleaning_pipeling
+from yelp_final_project.cleaning import clean_data, load_data
+from yelp_final_project.analysis import (
+    reviews_vs_rating,
+    delivery_vs_rating,
+    price_vs_rating,
+    city_vs_rating,
+    second_most_common_category,
+)
 
 
 def _sample_data() -> pd.DataFrame:
@@ -32,20 +36,18 @@ def _run_with_capture(func) -> str:
 
 
 def main() -> None:
-    st.set_page_config(page_title="STAT 386 Prototype", layout="wide")
-    st.title("STAT 386 Project Prototype")
+    st.set_page_config(page_title="Yelp Ice Cream Shop Ratings in Utah", layout="wide")
+    st.title("Yelp Ice Cream Shop Ratings in Utah")
     st.write(
-        "Use this template Streamlit app as a quick sandbox. Replace the sample data, "
-        "plug in your cleaning pipeline, and surface the most important visuals for your final deliverable."
-    )
+        "This Streamlit app lets you explore the dataset, run the cleaning pipeline, "
+        "and view analysis summaries for your STAT 386 final project."
+        )
 
     with st.sidebar:
         st.header("Controls")
         dataset_choice = st.selectbox("Dataset", ["Sample Data", "Upload CSV"])
-        show_cleaning = st.checkbox("Preview cleaning pipeline output")
-        show_analysis = st.checkbox("Preview analysis pipeline output")
-        a = st.number_input("Toy add() input A", value=1)
-        b = st.number_input("Toy add() input B", value=2)
+        show_cleaning = st.checkbox("Show cleaned data")
+        show_analysis = st.checkbox("Show analysis summaries")
 
     if dataset_choice == "Sample Data":
         df = _sample_data()
@@ -60,23 +62,33 @@ def main() -> None:
     st.subheader("Data Preview")
     st.dataframe(df, use_container_width=True)
 
-    st.subheader("Quick Math Sandbox")
-    st.write(
-        "The package's `add` helper is wired up below so students can see how to surface custom utilities."
-    )
-    st.metric(label="add(a, b)", value=add(a, b))
+
 
     if show_cleaning:
-        st.subheader("Cleaning Pipeline Output")
-        cleaning_output = _run_with_capture(run_cleaning_pipeling)
-        st.code(cleaning_output or "run_cleaning_pipeling() did not emit text.")
-        st.caption("Replace run_cleaning_pipeling with your real preprocessing logic.")
+        st.subheader("Cleaned Data")
+        cleaned = clean_data()
+        st.code(cleaned, use_container_width=True)
+        st.caption("Replace clean_data with your real preprocessing logic.")
 
     if show_analysis:
-        st.subheader("Analysis Pipeline Output")
-        analysis_output = _run_with_capture(run_analysis_pipeline)
-        st.code(analysis_output or "run_analysis_pipeline() did not emit text.")
-        st.caption("Swap this stub with charts, metrics, or model diagnostics from your project.")
+        st.subheader("Analysis Summaries")
+        cleaned = clean_data()
+
+        st.write("### ⭐ Reviews vs Rating")
+        st.dataframe(reviews_vs_rating(cleaned))
+
+        st.write("### 🚚 Delivery vs Rating")
+        st.dataframe(delivery_vs_rating(cleaned))
+
+        st.write("### 💲 Price vs Rating")
+        st.dataframe(price_vs_rating(cleaned))
+
+        st.write("### 🏙️ City vs Rating")
+        st.dataframe(city_vs_rating(cleaned))
+
+        st.write("### 🍪 Second Most Common Category (besides Ice Cream)")
+        second_cat = second_most_common_category(cleaned)
+        st.success(f"Second most common category: **{second_cat}**")
 
     st.info(
         "Next steps: customize the sidebar controls, drop in Streamlit charts (st.bar_chart, st.map, etc.), "
