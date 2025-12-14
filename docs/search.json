@@ -1,0 +1,93 @@
+[
+  {
+    "objectID": "Tutorial.html",
+    "href": "Tutorial.html",
+    "title": "Utah Ice Cream Shop Analysis",
+    "section": "",
+    "text": "---\ntitle: \"Tutorial: Using the Utah Thrift Store Package\"\n---\n\n## 1. Installation\npip install git+https://github.com/yourusername/your-repo.git"
+  },
+  {
+    "objectID": "api/visualization.html",
+    "href": "api/visualization.html",
+    "title": "Data Visualization Module",
+    "section": "",
+    "text": "The cleaning module prepares raw Yelp API data for analysis by"
+  },
+  {
+    "objectID": "api/visualization.html#overview",
+    "href": "api/visualization.html#overview",
+    "title": "Data Visualization Module",
+    "section": "",
+    "text": "The cleaning module prepares raw Yelp API data for analysis by"
+  },
+  {
+    "objectID": "api/visualization.html#functions",
+    "href": "api/visualization.html#functions",
+    "title": "Data Visualization Module",
+    "section": "Functions",
+    "text": "Functions\n\nprocess_hours(df)\nDescription:\nConverts raw Yelp hours data into numerical features such as: - total hours open per week - number of days open - late-night indicator\nParameters: - df (pandas.DataFrame): Raw Yelp business data\nReturns: - pandas.DataFrame with engineered features"
+  },
+  {
+    "objectID": "api/analysis.html",
+    "href": "api/analysis.html",
+    "title": "Data Analysis Module",
+    "section": "",
+    "text": "The cleaning module prepares raw Yelp API data for analysis by"
+  },
+  {
+    "objectID": "api/analysis.html#overview",
+    "href": "api/analysis.html#overview",
+    "title": "Data Analysis Module",
+    "section": "",
+    "text": "The cleaning module prepares raw Yelp API data for analysis by"
+  },
+  {
+    "objectID": "api/analysis.html#functions",
+    "href": "api/analysis.html#functions",
+    "title": "Data Analysis Module",
+    "section": "Functions",
+    "text": "Functions\n\nprocess_hours(df)\nDescription:\nConverts raw Yelp hours data into numerical features such as: - total hours open per week - number of days open - late-night indicator\nParameters: - df (pandas.DataFrame): Raw Yelp business data\nReturns: - pandas.DataFrame with engineered features"
+  },
+  {
+    "objectID": "api/cleaning.html",
+    "href": "api/cleaning.html",
+    "title": "Data Cleaning Module",
+    "section": "",
+    "text": "The cleaning module prepares raw Yelp API data for analysis by"
+  },
+  {
+    "objectID": "api/cleaning.html#overview",
+    "href": "api/cleaning.html#overview",
+    "title": "Data Cleaning Module",
+    "section": "",
+    "text": "The cleaning module prepares raw Yelp API data for analysis by"
+  },
+  {
+    "objectID": "api/cleaning.html#functions",
+    "href": "api/cleaning.html#functions",
+    "title": "Data Cleaning Module",
+    "section": "Functions",
+    "text": "Functions\n\nprocess_hours(df)\nDescription:\nConverts raw Yelp hours data into numerical features such as: - total hours open per week - number of days open - late-night indicator\nParameters: - df (pandas.DataFrame): Raw Yelp business data\nReturns: - pandas.DataFrame with engineered features"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Utah Ice Cream Shop Analysis Package",
+    "section": "",
+    "text": "This project analyzes Yelp Ice Cream businesses in Utah County and Salt Lake County to explore how review volume, city, price and delivery relate to customer ratings.\nThe package provides tools for: - Cleaning Yelp API data - Analyzing features - Analyzing relationships between business characteristics and ratings - Visualizing results"
+  },
+  {
+    "objectID": "index.html#overview",
+    "href": "index.html#overview",
+    "title": "Utah Ice Cream Shop Analysis Package",
+    "section": "",
+    "text": "This project analyzes Yelp Ice Cream businesses in Utah County and Salt Lake County to explore how review volume, city, price and delivery relate to customer ratings.\nThe package provides tools for: - Cleaning Yelp API data - Analyzing features - Analyzing relationships between business characteristics and ratings - Visualizing results"
+  },
+  {
+    "objectID": "index.html#installation",
+    "href": "index.html#installation",
+    "title": "Utah Ice Cream Shop Analysis Package",
+    "section": "Installation",
+    "text": "Installation\n```bash pip install git+https://github.com/dmbinns/yelp_final_project.git"
+  }
+]
