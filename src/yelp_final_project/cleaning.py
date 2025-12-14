@@ -21,24 +21,48 @@ def convert_price(df):
     return df
 
 
-def clean_delivery(df):
+def clean_delivery(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
-    can_deliver = ["delivery"]
-    delivery_col = None
-    for col in can_deliver:
-        if col in df.columns:
-            delivery_col = col
-            break
-    if delivery_col is not None:
-        df["delivery_available"] = (
-            df[delivery_col]
-            .astype(str)
-            .str.lower()
-            .str.contains("yes|true|delivery")
-        ).map({True: "Yes", False: "No"})
+
+    if "transactions" in df.columns:
+        def parse_list(x):
+            if isinstance(x, list):
+                return x
+            if isinstance(x, str) and x.startswith("["):
+                try:
+                    return eval(x)
+                except Exception:
+                    return []
+            return []
+
+        df["transactions"] = df["transactions"].apply(parse_list)
+
+        df["pickup_available"] = df["transactions"].apply(
+            lambda x: "Yes" if "pickup" in x else "No"
+        )
+
+        def service_type(x):
+            has_delivery = "delivery" in x
+            has_pickup = "pickup" in x
+
+            if has_delivery and has_pickup:
+                return "Both"
+            elif has_delivery:
+                return "Delivery Only"
+            elif has_pickup:
+                return "Pickup Only"
+            else:
+                return "Neither"
+
+        df["service_type"] = df["transactions"].apply(service_type)
+
     else:
-        df["delivery_available"] = pd.NA
+        df["pickup_available"] = pd.NA
+        df["service_type"] = pd.NA
+
     return df
+
+
 
 
 def clean_columns(df):

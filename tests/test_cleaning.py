@@ -28,9 +28,13 @@ def test_convert_price_creates_column():
 
 
 def test_clean_delivery_creates_column():
-    df = pd.DataFrame({"delivery": ["Yes", "No"]})
+    df = pd.DataFrame({"transactions": [["delivery"], ["pickup"]]})
     cleaned = clean_delivery(df)
-    assert "delivery_available" in cleaned.columns
+
+    assert "service_type" in cleaned.columns
+    assert cleaned["service_type"].iloc[0] == "Delivery Only"
+    assert cleaned["service_type"].iloc[1] == "Pickup Only"
+
 
 
 def test_drop_columns_runs():

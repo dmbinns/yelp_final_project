@@ -1,7 +1,7 @@
 import pandas as pd
 from yelp_final_project.analysis import (
     reviews_vs_rating,
-    delivery_vs_rating,
+    service_type_vs_rating,
     price_vs_rating,
     city_vs_rating,
     second_most_common_category,
@@ -15,10 +15,11 @@ def test_reviews_vs_rating_runs():
     assert isinstance(out, pd.DataFrame)
 
 
-def test_delivery_vs_rating_runs():
+def test_service_type_vs_rating_runs():
     df = clean_data()
-    out = delivery_vs_rating(df)
-    assert isinstance(out, pd.DataFrame)
+    out = service_type_vs_rating(df)
+    assert "avg_rating" in out.columns
+    assert "service_type" in out.columns
 
 
 def test_price_vs_rating_runs():

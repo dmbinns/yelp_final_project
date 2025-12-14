@@ -10,7 +10,7 @@ from .cleaning import (
 
 from .analysis import (
     reviews_vs_rating,
-    delivery_vs_rating,
+    service_type_vs_rating,
     price_vs_rating,
     city_vs_rating,
     second_most_common_category,

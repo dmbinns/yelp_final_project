@@ -22,18 +22,15 @@ def reviews_vs_rating(df):
     return result
 
 
-def delivery_vs_rating(df):
-    check_columns(df, ["rating", "delivery_available", "name"])
-    result = (
-        df.groupby("delivery_available")
-        .agg(
-            avg_rating=("rating", "mean"),
-            count=("name", "count")
-        )
+
+def service_type_vs_rating(df):
+    check_columns(df, ["rating", "service_type", "name"])
+    return (
+        df.groupby("service_type")
+        .agg(avg_rating=("rating", "mean"), count=("name", "count"))
         .reset_index()
         .sort_values("avg_rating", ascending=False)
     )
-    return result
 
 
 def price_vs_rating(df):
