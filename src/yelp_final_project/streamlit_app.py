@@ -17,17 +17,6 @@ from yelp_final_project.analysis import (
 )
 
 
-def _sample_data() -> pd.DataFrame:
-    """Small placeholder dataset for rapid UI feedback."""
-    return pd.DataFrame(
-        {
-            "team": ["alpha", "beta", "gamma"],
-            "metric_a": [0.72, 0.55, 0.91],
-            "metric_b": [12, 9, 17],
-        }
-    )
-
-
 def _run_with_capture(func) -> str:
     """Capture stdout from placeholder pipelines so Streamlit can display it."""
     buffer = io.StringIO()
@@ -55,18 +44,6 @@ def main() -> None:
         show_cleaning = st.checkbox("Show cleaned data")
         show_analysis = st.checkbox("Show analysis summaries")
 
-    if dataset_choice == "Sample Data":
-        df = _sample_data()
-    else:
-        uploaded = st.file_uploader("Upload a CSV file", type="csv")
-        if uploaded:
-            df = pd.read_csv(uploaded)
-        else:
-            st.info("No file uploaded yet. Falling back to the sample data so the widgets stay live.")
-            df = _sample_data()
-
-    st.subheader("Data Preview")
-    st.dataframe(df, use_container_width=True)
 
     st.write("### Quick Dataset Summary")
     cleaned_for_summary = clean_data()
@@ -98,7 +75,7 @@ def main() -> None:
     if enable_filters:
         st.subheader("🔍 Filtered Results (Optional)")
 
-        filtered = clean_data().copy()   # start with full cleaned dataset
+        filtered = clean_data().copy() 
 
         with st.expander("Filter Options"):
             city = st.selectbox("City", ["All"] + sorted(filtered["city"].dropna().unique()))
@@ -111,7 +88,6 @@ def main() -> None:
                 sorted(filtered["service_type"].dropna().unique())
             )
 
-        # APPLY FILTERS
         if city != "All":
             filtered = filtered[filtered["city"] == city]
 
