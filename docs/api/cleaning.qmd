@@ -1,0 +1,23 @@
+---
+title: "Data Cleaning Module"
+---
+
+## Overview
+
+The cleaning module prepares raw Yelp API data for analysis by 
+
+## Functions
+
+### `process_hours(df)`
+
+**Description:**  
+Converts raw Yelp hours data into numerical features such as:
+- total hours open per week
+- number of days open
+- late-night indicator
+
+**Parameters:**
+- `df` (pandas.DataFrame): Raw Yelp business data
+
+**Returns:**
+- pandas.DataFrame with engineered features

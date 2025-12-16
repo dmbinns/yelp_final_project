@@ -1,0 +1,35 @@
+---
+title: "Tutorial: Analyzing Ice Cream Shops in Utah Using Yelp Data"
+---
+
+## ⚠️ Work in Progress
+
+> **Note:** This tutorial is a placeholder while the package implementation
+> is being finalized. Fully executable examples and outputs will be added
+> once development is complete.
+
+---
+
+## 1. Introduction
+
+This tutorial demonstrates how to use the **Ice Cream Shop Analysis**
+Python package to collect, clean, analyze, and visualize Yelp business data.
+
+The project focuses on **ice cream shops in Utah County and Salt Lake County**
+and investigates how business characteristics such as:
+
+- Review volume  
+- Delivery availability  
+- Price level  
+- City location  
+
+relate to **customer ratings** on Yelp.
+
+---
+
+## 2. Installation
+
+Once finalized, the package will be installable directly from GitHub:
+
+```bash
+pip install git+https://github.com/yourusername/your-repo.git

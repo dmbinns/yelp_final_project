@@ -1,33 +1,5 @@
 [
   {
-    "objectID": "tutorial.html",
-    "href": "tutorial.html",
-    "title": "Tutorial: Analyzing Ice Cream Shops in Utah Using Yelp Data",
-    "section": "",
-    "text": "Note: This tutorial is a placeholder while the package implementation is being finalized. Fully executable examples and outputs will be added once development is complete."
-  },
-  {
-    "objectID": "tutorial.html#work-in-progress",
-    "href": "tutorial.html#work-in-progress",
-    "title": "Tutorial: Analyzing Ice Cream Shops in Utah Using Yelp Data",
-    "section": "",
-    "text": "Note: This tutorial is a placeholder while the package implementation is being finalized. Fully executable examples and outputs will be added once development is complete."
-  },
-  {
-    "objectID": "tutorial.html#introduction",
-    "href": "tutorial.html#introduction",
-    "title": "Tutorial: Analyzing Ice Cream Shops in Utah Using Yelp Data",
-    "section": "1. Introduction",
-    "text": "1. Introduction\nThis tutorial demonstrates how to use the Ice Cream Shop Analysis Python package to collect, clean, analyze, and visualize Yelp business data.\nThe project focuses on ice cream shops in Utah County and Salt Lake County and investigates how business characteristics such as:\n\nReview volume\n\nDelivery availability\n\nPrice level\n\nCity location\n\nrelate to customer ratings on Yelp."
-  },
-  {
-    "objectID": "tutorial.html#installation",
-    "href": "tutorial.html#installation",
-    "title": "Tutorial: Analyzing Ice Cream Shops in Utah Using Yelp Data",
-    "section": "2. Installation",
-    "text": "2. Installation\nOnce finalized, the package will be installable directly from GitHub:\n```bash pip install git+https://github.com/yourusername/your-repo.git"
-  },
-  {
     "objectID": "api/visualization.html",
     "href": "api/visualization.html",
     "title": "Data Visualization Module",
@@ -110,5 +82,19 @@
     "title": "Utah Ice Cream Shop Analysis Package",
     "section": "Installation",
     "text": "Installation\n```bash pip install git+https://github.com/dmbinns/yelp_final_project.git"
+  },
+  {
+    "objectID": "Tutorial.html",
+    "href": "Tutorial.html",
+    "title": "Utah Ice Cream Shop Analysis",
+    "section": "",
+    "text": "---\ntitle: \"Tutorial: Using the Utah Thrift Store Package\"\n---\n\n## 1. Installation\npip install git+https://github.com/yourusername/your-repo.git"
+  },
+  {
+    "objectID": "Tutorial.html#installation",
+    "href": "Tutorial.html#installation",
+    "title": "Tutorial: Using the Utah Thrift Store Package",
+    "section": "",
+    "text": "pip install git+https://github.com/yourusername/your-repo.git"
   }
 ]

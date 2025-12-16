@@ -1,0 +1,10 @@
+```markdown
+---
+title: "Tutorial: Using the Utah Thrift Store Package"
+---
+
+## 1. Installation
+```
+```python
+pip install git+https://github.com/yourusername/your-repo.git
+```

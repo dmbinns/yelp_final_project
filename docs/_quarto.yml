@@ -1,0 +1,25 @@
+project:
+  type: website
+  output-dir: .
+
+website:
+  title: "Utah Ice Cream Shop Analysis"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: tutorial.qmd
+        text: Tutorial
+      - text: API Reference
+        menu:
+          - href: api/cleaning.qmd
+            text: Data Cleaning
+          - href: api/analysis.qmd
+            text: Analysis
+          - href: api/visualization.qmd
+            text: Visualization
+
+format:
+  html:
+    theme: cosmo
+    toc: true
