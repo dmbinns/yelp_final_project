@@ -10,7 +10,7 @@ website:
         text: Home
       - href: report.qmd
         text: Report
-      - href: tutorial.qmd
+      - href: Tutorial.qmd
         text: Tutorial
       - text: Package Elements
         menu:
