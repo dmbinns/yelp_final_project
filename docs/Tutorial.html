@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Tutorial: Analyzing Ice Cream Shops in Utah Using Yelp Data – Utah Ice Cream Shop Analysis</title>
+<title>Tutorial: Analyzing Ice Cream Shops in Utah Using Yelp Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,127 +58,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
+<script src="Tutorial_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Tutorial_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Tutorial_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Tutorial_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="Tutorial_files/libs/quarto-html/popper.min.js"></script>
+<script src="Tutorial_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Tutorial_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Tutorial_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Tutorial_files/libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Tutorial_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Tutorial_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Tutorial_files/libs/bootstrap/bootstrap-9e3ffae467580fdb927a41352e75a2e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="fullcontent quarto-light">
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    </a>
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Utah Ice Cream Shop Analysis</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./report.html"> 
-<span class="menu-text">Report</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./tutorial.qmd"> 
-<span class="menu-text">Tutorial</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-package-elements" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Package Elements</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-package-elements">    
-        <li>
-    <a class="dropdown-item" href="./api/cleaning.html">
- <span class="dropdown-text">Data Cleaning</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./api/analysis.html">
- <span class="dropdown-text">Analysis</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./api/visualization.html">
- <span class="dropdown-text">Visualization</span></a>
-  </li>  
-    </ul>
-  </li>
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">1. Introduction</a></li>
-  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">2. Installation</a></li>
-  </ul>
-</nav>
-    </div>
-<!-- main -->
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -218,10 +146,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="installation" class="level2">
 <h2 class="anchored" data-anchor-id="installation">2. Installation</h2>
-<p>###2.1 Requirements</p>
-<p>To use this package and run the Streamlit app, you will need: - Python 3.11 or higher - Git - A virtual environment (recommended)</p>
+<section id="requirements" class="level3">
+<h3 class="anchored" data-anchor-id="requirements">2.1 Requirements</h3>
+<p>To use this package and run the Streamlit app, you will need:</p>
+<ul>
+<li>Python 3.11 or higher</li>
+<li>Git</li>
+<li>A virtual environment (recommended)</li>
+</ul>
 <p>The project uses Python packaging with pyproject.toml, and a simple requirements.txt file is provided for running the Streamlit app.</p>
-<p>###2.2 Instal from Github</p>
+</section>
+<section id="instal-from-github" class="level3">
+<h3 class="anchored" data-anchor-id="instal-from-github">2.2 Instal from Github</h3>
 <p>Once finalized, the package will be installable directly from GitHub:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install git+https://github.com/yourusername/yelp_final_project.git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Alternatively, you can clone the repository and install locally:</p>
@@ -230,7 +166,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>To install dependencies for running the Streamlit app only:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>##3. Project Structure</p>
+<hr>
+</section>
+</section>
+<section id="project-structure" class="level2">
+<h2 class="anchored" data-anchor-id="project-structure">3. Project Structure</h2>
 <p>The repository follows a standard src-layout Python project structure:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>yelp_final_project/</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>├── pyproject<span class="fu">.toml</span></span>
@@ -245,12 +185,124 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>├── tests/</span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>├── docs/</span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>└── Tutorial<span class="fu">.qmd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Key components: - cleaning.py: data loading and cleaning functions - analysis.py: summary statistics and analysis functions - streamlit_app.py: interactive Streamlit dashboard - docs/: Quarto documentation and tutorial</p>
-
-
+<p>Key components:</p>
+<ul>
+<li>cleaning.py: data loading and cleaning functions</li>
+<li>analysis.py: summary statistics and analysis functions</li>
+<li>streamlit_app.py: interactive Streamlit dashboard</li>
+<li>docs/: Quarto documentation and tutorial</li>
+</ul>
+<hr>
+</section>
+<section id="data-cleaning" class="level2">
+<h2 class="anchored" data-anchor-id="data-cleaning">4. Data Cleaning</h2>
+<p>The cleaning pipeline standardizes raw Yelp data into a format suitable for analysis.</p>
+<p>Key cleaning steps include:</p>
+<ul>
+<li>Standardizing column names</li>
+<li>Converting dollar-sign price fields (<span class="math inline">\(–\)</span>$$$) into numeric price levels</li>
+<li>Creating a unified city column</li>
+<li>Classifying businesses by service type</li>
+<li>Removing unused or irrelevant columns</li>
+</ul>
+<section id="example-cleaning-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="example-cleaning-the-data">Example: Cleaning the data</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> yelp_final_project.cleaning <span class="im">import</span> clean_data</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df_clean <span class="op">=</span> clean_data()</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df_clean.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This function returns a cleaned pandas DataFrame that is used throughout the analysis and Streamlit app.</p>
+<hr>
+</section>
+</section>
+<section id="analysis-functions" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-functions">5. Analysis Functions</h2>
+<p>The package includes several analysis helpers that summarize relationships between business characteristics and ratings.</p>
+<section id="reviews-vs-rating" class="level3">
+<h3 class="anchored" data-anchor-id="reviews-vs-rating">5.1 Reviews vs Rating</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> yelp_final_project.analysis <span class="im">import</span> reviews_vs_rating</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>reviews_summary <span class="op">=</span> reviews_vs_rating(df_clean)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>reviews_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This function groups businesses and summarizes how review volume relates to average customer ratings.</p>
+</section>
+<section id="price-level-vs-rating" class="level3">
+<h3 class="anchored" data-anchor-id="price-level-vs-rating">5.2 Price Level vs Rating</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> yelp_final_project.analysis <span class="im">import</span> price_vs_rating</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>price_summary <span class="op">=</span> price_vs_rating(df_clean)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>price_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This analysis explores whether higher-priced ice cream shops tend to receive higher ratings.</p>
+</section>
+<section id="city-vs-rating" class="level3">
+<h3 class="anchored" data-anchor-id="city-vs-rating">5.3 City vs Rating</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> yelp_final_project.analysis <span class="im">import</span> city_vs_rating</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>city_summary <span class="op">=</span> city_vs_rating(df_clean)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>city_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This function compares average ratings across cities in Utah.</p>
+</section>
+<section id="service-type-vs-rating" class="level3">
+<h3 class="anchored" data-anchor-id="service-type-vs-rating">5.4 Service Type vs Rating</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> yelp_final_project.analysis <span class="im">import</span> service_type_vs_rating</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>service_summary <span class="op">=</span> service_type_vs_rating(df_clean)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>service_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This analysis examines how service options (e.g., takeout, dine-in) relate to customer ratings.</p>
+</section>
+<section id="second-most-common-category" class="level3">
+<h3 class="anchored" data-anchor-id="second-most-common-category">5.5 Second Most Common Category</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> yelp_final_project.analysis <span class="im">import</span> second_most_common_category</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>second_cat <span class="op">=</span> second_most_common_category(df_clean)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>second_cat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This helper identifies the most common business category besides ice cream and frozen yogurt.</p>
+<hr>
+</section>
+</section>
+<section id="streamlit-app" class="level2">
+<h2 class="anchored" data-anchor-id="streamlit-app">6. Streamlit App</h2>
+<p>An interactive dashboard is included to make the analysis accessible to all users.</p>
+<section id="running-the-app" class="level3">
+<h3 class="anchored" data-anchor-id="running-the-app">6.1 Running the App</h3>
+<p>From the project root:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">streamlit</span> run src/yelp_final_project/streamlit_app.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The app allows users to:</p>
+<ul>
+<li>Preview raw and cleaned data</li>
+<li>Apply filters by city, price level, and service type</li>
+<li>Explore interactive charts and tables</li>
+<li>View a geographic map of ice cream shops across Utah</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="documentation-and-github-pages" class="level2">
+<h2 class="anchored" data-anchor-id="documentation-and-github-pages">7. Documentation and GitHub Pages</h2>
+<p>All documentation for this project—including this tutorial—is built using Quarto and hosted on GitHub Pages.</p>
+<p>The docs/ folder contains:</p>
+<ul>
+<li>Function and module documentation</li>
+<li>This tutorial</li>
+<li>A written project report</li>
+</ul>
+<p>Links to the published documentation and Streamlit app are provided in the project README.</p>
+<hr>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">8. Conclusion</h2>
+<p>This package includes each step of a data science workflow to gather, clean, analyze, and visualize data. The main parts that make up our package are:</p>
+<ul>
+<li>Data cleaning and preprocessing</li>
+<li>Exploratory data analysis</li>
+<li>Interactive visualization</li>
+<li>Reproducible documentation</li>
+</ul>
+<p>By combining Python packaging, testing, Streamlit, and Quarto, this project will guide readers through how to gather, analyze and present their own data.</p>
 </section>
 
-</main> <!-- /main -->
+</main>
+<!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -652,6 +704,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   });
   </script>
 </div> <!-- /content -->
+
 
 
 
