@@ -1,47 +1,5 @@
 [
   {
-    "objectID": "Tutorial.html",
-    "href": "Tutorial.html",
-    "title": "Tutorial: Analyzing Ice Cream Shops in Utah Using Yelp Data",
-    "section": "",
-    "text": "This tutorial demonstrates how to use the Ice Cream Shop Analysis Python package to collect, clean, analyze, and visualize Yelp business data.\nThe project focuses on ice cream shops in Utah County and Salt Lake County and investigates how business characteristics such as:\n\nReview volume\n\nDelivery availability\n\nPrice level\n\nCity location\n\nrelate to customer ratings on Yelp."
-  },
-  {
-    "objectID": "Tutorial.html#introduction",
-    "href": "Tutorial.html#introduction",
-    "title": "Tutorial: Analyzing Ice Cream Shops in Utah Using Yelp Data",
-    "section": "",
-    "text": "This tutorial demonstrates how to use the Ice Cream Shop Analysis Python package to collect, clean, analyze, and visualize Yelp business data.\nThe project focuses on ice cream shops in Utah County and Salt Lake County and investigates how business characteristics such as:\n\nReview volume\n\nDelivery availability\n\nPrice level\n\nCity location\n\nrelate to customer ratings on Yelp."
-  },
-  {
-    "objectID": "Tutorial.html#installation",
-    "href": "Tutorial.html#installation",
-    "title": "Tutorial: Analyzing Ice Cream Shops in Utah Using Yelp Data",
-    "section": "2. Installation",
-    "text": "2. Installation\n###2.1 Requirements\nTo use this package and run the Streamlit app, you will need: - Python 3.11 or higher - Git - A virtual environment (recommended)\nThe project uses Python packaging with pyproject.toml, and a simple requirements.txt file is provided for running the Streamlit app.\n###2.2 Instal from Github\nOnce finalized, the package will be installable directly from GitHub:\npip install git+https://github.com/yourusername/yelp_final_project.git\nAlternatively, you can clone the repository and install locally:\ngit clone https://github.com/yourusername/yelp_final_project.git\ncd yelp_final_project\npip install .\nTo install dependencies for running the Streamlit app only:\npip install -r requirements.txt\n##3. Project Structure\nThe repository follows a standard src-layout Python project structure:\nyelp_final_project/\n├── pyproject.toml\n├── requirements.txt\n├── README.md\n├── src/\n│   └── yelp_final_project/\n│       ├── cleaning.py\n│       ├── analysis.py\n│       ├── streamlit_app.py\n│       └── __init__.py\n├── tests/\n├── docs/\n└── Tutorial.qmd\nKey components: - cleaning.py: data loading and cleaning functions - analysis.py: summary statistics and analysis functions - streamlit_app.py: interactive Streamlit dashboard - docs/: Quarto documentation and tutorial"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Utah Ice Cream Shop Analysis Package",
-    "section": "",
-    "text": "This project analyzes Yelp Ice Cream businesses in Utah County and Salt Lake County to explore how review volume, city, price and delivery relate to customer ratings.\nThe package provides tools for: - Cleaning Yelp API data - Analyzing features - Analyzing relationships between business characteristics and ratings - Visualizing results"
-  },
-  {
-    "objectID": "index.html#overview",
-    "href": "index.html#overview",
-    "title": "Utah Ice Cream Shop Analysis Package",
-    "section": "",
-    "text": "This project analyzes Yelp Ice Cream businesses in Utah County and Salt Lake County to explore how review volume, city, price and delivery relate to customer ratings.\nThe package provides tools for: - Cleaning Yelp API data - Analyzing features - Analyzing relationships between business characteristics and ratings - Visualizing results"
-  },
-  {
-    "objectID": "index.html#installation",
-    "href": "index.html#installation",
-    "title": "Utah Ice Cream Shop Analysis Package",
-    "section": "Installation",
-    "text": "Installation\n```bash pip install git+https://github.com/dmbinns/yelp_final_project.git"
-  },
-  {
     "objectID": "api/cleaning.html",
     "href": "api/cleaning.html",
     "title": "Data Cleaning Module",
@@ -60,7 +18,7 @@
     "href": "api/cleaning.html#functions",
     "title": "Data Cleaning Module",
     "section": "Functions",
-    "text": "Functions\n\nMain Function: clean_data()\n```python from yelp_final_project.cleaning import clean_data\ndf_clean = clean_data()\nThis function: -Loads the raw Yelp dataset -Applies all cleaning steps internally -Returns a cleaned pandas DataFrame ready for analysis\n\n\nSupporting/Helper Functions:\n-load_data() — loads the raw CSV file -drop_columns() — removes unnecessary columns -convert_price() — converts price strings to numeric levels -clean_delivery() — standardizes delivery/pickup availability -sort_cities() — sorts and cleans city names\nParameters: - df (pandas.DataFrame): Raw Yelp business data\nReturns: - pandas.DataFrame with engineered features"
+    "text": "Functions\n\nMain Function: clean_data()\nfrom yelp_final_project.cleaning import clean_data\ndf_clean = clean_data()\nThis function:\n-Loads the raw Yelp dataset -Applies all cleaning steps internally -Returns a cleaned pandas DataFrame ready for analysis\n\n\nSupporting/Helper Functions:\n\nload_data(): loads the raw CSV file\ndrop_columns(): removes unnecessary columns\nconvert_price(): converts price strings to numeric levels\nclean_delivery(): standardizes delivery/pickup availability\nsort_cities(): sorts and cleans city names\n\nParameters:\ndf (pandas.DataFrame): Raw Yelp business data\nReturns:\npandas.DataFrame with engineered features"
   },
   {
     "objectID": "api/cleaning.html#output",
@@ -68,34 +26,6 @@
     "title": "Data Cleaning Module",
     "section": "Output",
     "text": "Output\nThe cleaned dataset includes standardized columns such as:\n\nname\ncity\nrating\nreview_count\nprice_level\nservice_type\n\nThis dataset is used by both the analysis module and the Streamlit app."
-  },
-  {
-    "objectID": "api/analysis.html",
-    "href": "api/analysis.html",
-    "title": "Data Analysis Module",
-    "section": "",
-    "text": "The analysis module contains functions that summarize relationships between Yelp business characteristics and customer ratings.\nThese functions are designed for exploratory data analysis and are used directly by the Streamlit app to generate tables and visualizations."
-  },
-  {
-    "objectID": "api/analysis.html#overview",
-    "href": "api/analysis.html#overview",
-    "title": "Data Analysis Module",
-    "section": "",
-    "text": "The analysis module contains functions that summarize relationships between Yelp business characteristics and customer ratings.\nThese functions are designed for exploratory data analysis and are used directly by the Streamlit app to generate tables and visualizations."
-  },
-  {
-    "objectID": "api/analysis.html#functions",
-    "href": "api/analysis.html#functions",
-    "title": "Data Analysis Module",
-    "section": "Functions",
-    "text": "Functions\n\nReviews vs Rating\nreviews_vs_rating(df)\nThis function summarizes how review volume relates to average customer ratings across businesses.\nIt groups businesses and computes: - Average rating - Average review count - Number of shops per group\n\n\nPrice vs Rating\nprice_vs_rating(df)\nThis function examines whether price level is associated with higher or lower customer ratings.\n\n\nCity vs Rating\ncity_vs_rating(df)\nThis function compares average ratings across cities in Utah and counts the number of shops per city.\n\n\nService Type vs Rating\nservice_type_vs_rating(df)\nThis function evaluates whether service type (delivery, pickup, both, neither) is associated with differences in customer ratings.\n\n\nSecond Most Common Category\nsecond_most_common_category(df)\nsecond_most_common_category(df)\nThis helper identifies the most common Yelp business category besides Ice Cream."
-  },
-  {
-    "objectID": "api/analysis.html#purpose",
-    "href": "api/analysis.html#purpose",
-    "title": "Data Analysis Module",
-    "section": "Purpose:",
-    "text": "Purpose:\nAll analysis functions: - Accept a cleaned pandas DataFrame - Perform data aggregation using pandas - Return summary tables"
   },
   {
     "objectID": "api/visualization.html",
@@ -124,6 +54,48 @@
     "title": "Data Visualization Module",
     "section": "Interactive Charts",
     "text": "Interactive Charts\nPlotly is used for interactive visualizations, including: - Scatter plots of review count vs rating - Bar charts of average rating by city - Bar charts of average rating by service type - Line charts of rating by price level - A geographic map of ice cream shops in Utah\nThese charts allow zooming, hovering, and filtering so users can explore."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Utah Ice Cream Shop Analysis Package",
+    "section": "",
+    "text": "This project analyzes Yelp Ice Cream businesses in Utah County and Salt Lake County to explore how review volume, city, price and delivery relate to customer ratings.\nThe package provides tools for: - Cleaning Yelp API data - Analyzing features - Analyzing relationships between business characteristics and ratings - Visualizing results"
+  },
+  {
+    "objectID": "index.html#overview",
+    "href": "index.html#overview",
+    "title": "Utah Ice Cream Shop Analysis Package",
+    "section": "",
+    "text": "This project analyzes Yelp Ice Cream businesses in Utah County and Salt Lake County to explore how review volume, city, price and delivery relate to customer ratings.\nThe package provides tools for: - Cleaning Yelp API data - Analyzing features - Analyzing relationships between business characteristics and ratings - Visualizing results"
+  },
+  {
+    "objectID": "index.html#installation",
+    "href": "index.html#installation",
+    "title": "Utah Ice Cream Shop Analysis Package",
+    "section": "Installation",
+    "text": "Installation\n```bash pip install git+https://github.com/dmbinns/yelp_final_project.git"
+  },
+  {
+    "objectID": "Tutorial.html",
+    "href": "Tutorial.html",
+    "title": "Tutorial: Analyzing Ice Cream Shops in Utah Using Yelp Data",
+    "section": "",
+    "text": "This tutorial demonstrates how to use the Ice Cream Shop Analysis Python package to collect, clean, analyze, and visualize Yelp business data.\nThe project focuses on ice cream shops in Utah County and Salt Lake County and investigates how business characteristics such as:\n\nReview volume\n\nDelivery availability\n\nPrice level\n\nCity location\n\nrelate to customer ratings on Yelp."
+  },
+  {
+    "objectID": "Tutorial.html#introduction",
+    "href": "Tutorial.html#introduction",
+    "title": "Tutorial: Analyzing Ice Cream Shops in Utah Using Yelp Data",
+    "section": "",
+    "text": "This tutorial demonstrates how to use the Ice Cream Shop Analysis Python package to collect, clean, analyze, and visualize Yelp business data.\nThe project focuses on ice cream shops in Utah County and Salt Lake County and investigates how business characteristics such as:\n\nReview volume\n\nDelivery availability\n\nPrice level\n\nCity location\n\nrelate to customer ratings on Yelp."
+  },
+  {
+    "objectID": "Tutorial.html#installation",
+    "href": "Tutorial.html#installation",
+    "title": "Tutorial: Analyzing Ice Cream Shops in Utah Using Yelp Data",
+    "section": "2. Installation",
+    "text": "2. Installation\n###2.1 Requirements\nTo use this package and run the Streamlit app, you will need: - Python 3.11 or higher - Git - A virtual environment (recommended)\nThe project uses Python packaging with pyproject.toml, and a simple requirements.txt file is provided for running the Streamlit app.\n###2.2 Instal from Github\nOnce finalized, the package will be installable directly from GitHub:\npip install git+https://github.com/yourusername/yelp_final_project.git\nAlternatively, you can clone the repository and install locally:\ngit clone https://github.com/yourusername/yelp_final_project.git\ncd yelp_final_project\npip install .\nTo install dependencies for running the Streamlit app only:\npip install -r requirements.txt\n##3. Project Structure\nThe repository follows a standard src-layout Python project structure:\nyelp_final_project/\n├── pyproject.toml\n├── requirements.txt\n├── README.md\n├── src/\n│   └── yelp_final_project/\n│       ├── cleaning.py\n│       ├── analysis.py\n│       ├── streamlit_app.py\n│       └── __init__.py\n├── tests/\n├── docs/\n└── Tutorial.qmd\nKey components: - cleaning.py: data loading and cleaning functions - analysis.py: summary statistics and analysis functions - streamlit_app.py: interactive Streamlit dashboard - docs/: Quarto documentation and tutorial"
   },
   {
     "objectID": "report.html",
@@ -173,5 +145,33 @@
     "title": "What Drives Yelp Ratings? An Analysis of Ice Cream Shops in Utah",
     "section": "6 Results",
     "text": "6 Results\nThis analysis examined the impact of review volume, service type, price level, and city on the average rating of ice cream shops. Among these variables, city location exhibited the strongest association with average rating.\nNo clear trend was observed between review volume and rating. As review counts increased, ratings continued to exhibit a wide and consistent spread, indicating that a higher number of reviews does not necessarily correspond to higher or lower ratings on average.\n\n\n\nScatter plot of review count vs rating\n\n\nRegarding service type, businesses offering both delivery and pickup, as well as those offering delivery only, tended to have slightly higher average ratings than businesses offering pickup only. However, the difference in average ratings across service types was less than half a point, suggesting that while delivery may offer a small advantage, it is not a dominant factor.\n\n\n\nBar Graph of service type vs rating\n\n\nPrice level also showed no clear linear relationship with rating. The lowest average ratings were observed for businesses in the lowest and third price categories, while the highest average ratings were associated with the second and highest price levels. This pattern may reflect consumer expectations regarding quality at higher price points, though the limited number of businesses at the highest price level should be considered when interpreting these results.\n\n\n\nprice level vs rating\n\n\nCity-level analysis revealed substantial variation in average ratings across locations. This finding suggests that geographic factors, local competition, or consumer preferences may play a role in shaping ratings. The highest-rated cities include Lake Shore, Morgan, West Valley City, and Holladay.\n\n\n\nprice level vs rating"
+  },
+  {
+    "objectID": "api/analysis.html",
+    "href": "api/analysis.html",
+    "title": "Data Analysis Module",
+    "section": "",
+    "text": "The analysis module contains functions that summarize relationships between Yelp business characteristics and customer ratings.\nThese functions are designed for exploratory data analysis and are used directly by the Streamlit app to generate tables and visualizations."
+  },
+  {
+    "objectID": "api/analysis.html#overview",
+    "href": "api/analysis.html#overview",
+    "title": "Data Analysis Module",
+    "section": "",
+    "text": "The analysis module contains functions that summarize relationships between Yelp business characteristics and customer ratings.\nThese functions are designed for exploratory data analysis and are used directly by the Streamlit app to generate tables and visualizations."
+  },
+  {
+    "objectID": "api/analysis.html#functions",
+    "href": "api/analysis.html#functions",
+    "title": "Data Analysis Module",
+    "section": "Functions",
+    "text": "Functions\n\nReviews vs Rating\nreviews_vs_rating(df)\nThis function summarizes how review volume relates to average customer ratings across businesses.\nIt groups businesses and computes: - Average rating - Average review count - Number of shops per group\n\n\nPrice vs Rating\nprice_vs_rating(df)\nThis function examines whether price level is associated with higher or lower customer ratings.\n\n\nCity vs Rating\ncity_vs_rating(df)\nThis function compares average ratings across cities in Utah and counts the number of shops per city.\n\n\nService Type vs Rating\nservice_type_vs_rating(df)\nThis function evaluates whether service type (delivery, pickup, both, neither) is associated with differences in customer ratings.\n\n\nSecond Most Common Category\nsecond_most_common_category(df)\nsecond_most_common_category(df)\nThis helper identifies the most common Yelp business category besides Ice Cream."
+  },
+  {
+    "objectID": "api/analysis.html#purpose",
+    "href": "api/analysis.html#purpose",
+    "title": "Data Analysis Module",
+    "section": "Purpose:",
+    "text": "Purpose:\nAll analysis functions: - Accept a cleaned pandas DataFrame - Perform data aggregation using pandas - Return summary tables"
   }
 ]
