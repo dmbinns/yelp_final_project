@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -96,14 +131,18 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../tutorial.html"> 
+    <a class="nav-link" href="../report.html"> 
+<span class="menu-text">Report</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../tutorial.qmd"> 
 <span class="menu-text">Tutorial</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-api-reference" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">API Reference</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-package-elements" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Package Elements</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-api-reference">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-package-elements">    
         <li>
     <a class="dropdown-item" href="../api/cleaning.html">
  <span class="dropdown-text">Data Cleaning</span></a>
@@ -137,8 +176,13 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a>
   <ul class="collapse">
-  <li><a href="#process_hoursdf" id="toc-process_hoursdf" class="nav-link" data-scroll-target="#process_hoursdf"><code>process_hours(df)</code></a></li>
+  <li><a href="#reviews-vs-rating" id="toc-reviews-vs-rating" class="nav-link" data-scroll-target="#reviews-vs-rating">Reviews vs Rating</a></li>
+  <li><a href="#price-vs-rating" id="toc-price-vs-rating" class="nav-link" data-scroll-target="#price-vs-rating">Price vs Rating</a></li>
+  <li><a href="#city-vs-rating" id="toc-city-vs-rating" class="nav-link" data-scroll-target="#city-vs-rating">City vs Rating</a></li>
+  <li><a href="#service-type-vs-rating" id="toc-service-type-vs-rating" class="nav-link" data-scroll-target="#service-type-vs-rating">Service Type vs Rating</a></li>
+  <li><a href="#second-most-common-category" id="toc-second-most-common-category" class="nav-link" data-scroll-target="#second-most-common-category">Second Most Common Category</a></li>
   </ul></li>
+  <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose">Purpose:</a></li>
   </ul>
 </nav>
     </div>
@@ -166,19 +210,44 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>The cleaning module prepares raw Yelp API data for analysis by</p>
+<p>The analysis module contains functions that summarize relationships between Yelp business characteristics and customer ratings.</p>
+<p>These functions are designed for exploratory data analysis and are used directly by the Streamlit app to generate tables and visualizations.</p>
 </section>
 <section id="functions" class="level2">
 <h2 class="anchored" data-anchor-id="functions">Functions</h2>
-<section id="process_hoursdf" class="level3">
-<h3 class="anchored" data-anchor-id="process_hoursdf"><code>process_hours(df)</code></h3>
-<p><strong>Description:</strong><br>
-Converts raw Yelp hours data into numerical features such as: - total hours open per week - number of days open - late-night indicator</p>
-<p><strong>Parameters:</strong> - <code>df</code> (pandas.DataFrame): Raw Yelp business data</p>
-<p><strong>Returns:</strong> - pandas.DataFrame with engineered features</p>
-
-
+<section id="reviews-vs-rating" class="level3">
+<h3 class="anchored" data-anchor-id="reviews-vs-rating">Reviews vs Rating</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>reviews_vs_rating(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This function summarizes how review volume relates to average customer ratings across businesses.</p>
+<p>It groups businesses and computes: - Average rating - Average review count - Number of shops per group</p>
 </section>
+<section id="price-vs-rating" class="level3">
+<h3 class="anchored" data-anchor-id="price-vs-rating">Price vs Rating</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>price_vs_rating(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This function examines whether price level is associated with higher or lower customer ratings.</p>
+</section>
+<section id="city-vs-rating" class="level3">
+<h3 class="anchored" data-anchor-id="city-vs-rating">City vs Rating</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>city_vs_rating(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This function compares average ratings across cities in Utah and counts the number of shops per city.</p>
+</section>
+<section id="service-type-vs-rating" class="level3">
+<h3 class="anchored" data-anchor-id="service-type-vs-rating">Service Type vs Rating</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>service_type_vs_rating(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This function evaluates whether service type (delivery, pickup, both, neither) is associated with differences in customer ratings.</p>
+</section>
+<section id="second-most-common-category" class="level3">
+<h3 class="anchored" data-anchor-id="second-most-common-category">Second Most Common Category</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>second_most_common_category(df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>second_most_common_category(df)</p>
+<p>This helper identifies the most common Yelp business category besides Ice Cream.</p>
+</section>
+</section>
+<section id="purpose" class="level2">
+<h2 class="anchored" data-anchor-id="purpose">Purpose:</h2>
+<p>All analysis functions: - Accept a cleaned pandas DataFrame - Perform data aggregation using pandas - Return summary tables</p>
+
+
 </section>
 
 </main> <!-- /main -->

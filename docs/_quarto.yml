@@ -8,9 +8,11 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: report.qmd
+        text: Report
       - href: tutorial.qmd
         text: Tutorial
-      - text: API Reference
+      - text: Package Elements
         menu:
           - href: api/cleaning.qmd
             text: Data Cleaning
