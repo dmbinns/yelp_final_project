@@ -22,9 +22,10 @@ relate to **customer ratings** on Yelp.
 
 ## 2. Installation
 
-###2.1 Requirements
+### 2.1 Requirements
 
 To use this package and run the Streamlit app, you will need:
+
 - Python 3.11 or higher
 - Git
 - A virtual environment (recommended)
@@ -32,7 +33,7 @@ To use this package and run the Streamlit app, you will need:
 The project uses Python packaging with pyproject.toml, and a simple
 requirements.txt file is provided for running the Streamlit app.
 
-###2.2 Instal from Github
+### 2.2 Instal from Github
 
 Once finalized, the package will be installable directly from GitHub:
 
@@ -56,7 +57,9 @@ To install dependencies for running the Streamlit app only:
 pip install -r requirements.txt
 ```
 
-##3. Project Structure
+---
+
+## 3. Project Structure
 
 The repository follows a standard src-layout Python project structure:
 
@@ -78,8 +81,157 @@ yelp_final_project/
 ```
 
 Key components:
+
 - cleaning.py: data loading and cleaning functions
 - analysis.py: summary statistics and analysis functions
 - streamlit_app.py: interactive Streamlit dashboard
 - docs/: Quarto documentation and tutorial
 
+---
+
+## 4. Data Cleaning
+
+The cleaning pipeline standardizes raw Yelp data into a format suitable
+for analysis.
+
+Key cleaning steps include:
+
+- Standardizing column names
+- Converting dollar-sign price fields ($–$$$$) into numeric price levels
+- Creating a unified city column
+- Classifying businesses by service type
+- Removing unused or irrelevant columns
+
+### Example: Cleaning the data
+
+
+```python
+from yelp_final_project.cleaning import clean_data
+
+df_clean = clean_data()
+df_clean.head()
+```
+
+This function returns a cleaned pandas DataFrame that is used throughout
+the analysis and Streamlit app.
+
+---
+
+## 5. Analysis Functions
+
+The package includes several analysis helpers that summarize relationships
+between business characteristics and ratings.
+
+### 5.1 Reviews vs Rating
+
+```python
+from yelp_final_project.analysis import reviews_vs_rating
+
+reviews_summary = reviews_vs_rating(df_clean)
+reviews_summary
+```
+
+This function groups businesses and summarizes how review volume relates
+to average customer ratings.
+
+### 5.2 Price Level vs Rating
+
+```python
+from yelp_final_project.analysis import price_vs_rating
+
+price_summary = price_vs_rating(df_clean)
+price_summary
+```
+
+This analysis explores whether higher-priced ice cream shops tend to
+receive higher ratings.
+
+### 5.3 City vs Rating
+
+```python 
+from yelp_final_project.analysis import city_vs_rating
+
+city_summary = city_vs_rating(df_clean)
+city_summary
+```
+
+This function compares average ratings across cities in Utah.
+
+### 5.4 Service Type vs Rating
+
+```python
+from yelp_final_project.analysis import service_type_vs_rating
+
+service_summary = service_type_vs_rating(df_clean)
+service_summary
+```
+
+This analysis examines how service options (e.g., takeout, dine-in) relate
+to customer ratings.
+
+### 5.5 Second Most Common Category
+
+```python
+from yelp_final_project.analysis import second_most_common_category
+
+second_cat = second_most_common_category(df_clean)
+second_cat
+```
+
+This helper identifies the most common business category besides
+ice cream and frozen yogurt.
+
+---
+
+## 6. Streamlit App
+
+An interactive dashboard is included to make the analysis accessible
+to all users.
+
+### 6.1 Running the App
+
+From the project root:
+
+```bash
+streamlit run src/yelp_final_project/streamlit_app.py
+```
+
+The app allows users to:
+
+- Preview raw and cleaned data
+- Apply filters by city, price level, and service type
+- Explore interactive charts and tables
+- View a geographic map of ice cream shops across Utah
+
+---
+
+## 7. Documentation and GitHub Pages
+
+All documentation for this project—including this tutorial—is built using
+Quarto and hosted on GitHub Pages.
+
+The docs/ folder contains:
+
+- Function and module documentation
+- This tutorial
+- A written project report
+
+Links to the published documentation and Streamlit app are provided in the
+project README.
+
+---
+
+## 8. Conclusion
+
+This package includes each step of a data science workflow 
+to gather, clean, analyze, and visualize data. The main parts 
+that make up our package are:
+
+- Data cleaning and preprocessing
+- Exploratory data analysis
+- Interactive visualization
+- Reproducible documentation
+
+By combining Python packaging, testing, Streamlit, and Quarto,
+this project will guide readers through how to gather, analyze and 
+present their own data. 

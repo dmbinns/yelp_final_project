@@ -8,6 +8,7 @@ This project analyzes Yelp Ice Cream businesses in Utah County and Salt Lake Cou
 to explore how **review volume**, **city**, **price** and **delivery** relate to **customer ratings**.
 
 The package provides tools for:
+
 - Cleaning Yelp API data
 - Analyzing features
 - Analyzing relationships between business characteristics and ratings
@@ -17,3 +18,4 @@ The package provides tools for:
 
 ```bash
 pip install git+https://github.com/dmbinns/yelp_final_project.git
+```
