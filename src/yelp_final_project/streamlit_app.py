@@ -7,7 +7,7 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 
-from yelp_final_project.cleaning import clean_data
+from yelp_final_project.cleaning import clean_data, load_data
 from yelp_final_project.analysis import (
     reviews_vs_rating,
     price_vs_rating,
@@ -40,10 +40,9 @@ def main() -> None:
 
     with st.sidebar:
         st.header("Controls")
-        dataset_choice = st.selectbox("Dataset", ["Sample Data", "Upload CSV"])
+
         show_cleaning = st.checkbox("Show cleaned data")
         show_analysis = st.checkbox("Show analysis summaries")
-
 
     st.write("### Quick Dataset Summary")
     cleaned_for_summary = clean_data()
@@ -135,7 +134,7 @@ def main() -> None:
         )
         st.plotly_chart(fig2, use_container_width=True)
 
-        st.write("### 🥧 Service Type Distribution")
+        st.write("### 🚚 Service Type Distribution")
 
         service_counts = cleaned["service_type"].value_counts().reset_index()
         service_counts.columns = ["service_type", "count"]
