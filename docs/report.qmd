@@ -3,7 +3,7 @@ title: "What Drives Yelp Ratings? An Analysis of Ice Cream Shops in Utah"
 author:
   - "Daniela Binns"
   - "Lindsey Napierski"
-date: "STAT 386 – Final Project"
+date: "December 17, 2025"
 format:
   html:
     toc: true
