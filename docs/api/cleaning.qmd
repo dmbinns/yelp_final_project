@@ -18,28 +18,32 @@ This module makes sure the dataset is clean, consistent, and reproducible.
 
 ```python
 from yelp_final_project.cleaning import clean_data
+```
 
 df_clean = clean_data()
 
 This function:
+
 -Loads the raw Yelp dataset
 -Applies all cleaning steps internally
 -Returns a cleaned pandas DataFrame ready for analysis
 
 ### Supporting/Helper Functions:
 
--load_data() — loads the raw CSV file
--drop_columns() — removes unnecessary columns
--convert_price() — converts price strings to numeric levels
--clean_delivery() — standardizes delivery/pickup availability
--sort_cities() — sorts and cleans city names
+- load_data(): loads the raw CSV file
+- drop_columns(): removes unnecessary columns
+- convert_price(): converts price strings to numeric levels
+- clean_delivery(): standardizes delivery/pickup availability
+- sort_cities(): sorts and cleans city names
 
 
 **Parameters:**
-- `df` (pandas.DataFrame): Raw Yelp business data
+
+`df` (pandas.DataFrame): Raw Yelp business data
 
 **Returns:**
-- pandas.DataFrame with engineered features
+
+pandas.DataFrame with engineered features
 
 
 ## Output
