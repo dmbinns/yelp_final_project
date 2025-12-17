@@ -1,12 +1,5 @@
 ---
 title: "Tutorial: Analyzing Ice Cream Shops in Utah Using Yelp Data"
----
-
-## ⚠️ Work in Progress
-
-> **Note:** This tutorial is a placeholder while the package implementation
-> is being finalized. Fully executable examples and outputs will be added
-> once development is complete.
 
 ---
 
@@ -29,7 +22,64 @@ relate to **customer ratings** on Yelp.
 
 ## 2. Installation
 
+###2.1 Requirements
+
+To use this package and run the Streamlit app, you will need:
+- Python 3.11 or higher
+- Git
+- A virtual environment (recommended)
+
+The project uses Python packaging with pyproject.toml, and a simple
+requirements.txt file is provided for running the Streamlit app.
+
+###2.2 Instal from Github
+
 Once finalized, the package will be installable directly from GitHub:
 
 ```bash
-pip install git+https://github.com/yourusername/your-repo.git
+pip install git+https://github.com/yourusername/yelp_final_project.git
+
+```
+
+Alternatively, you can clone the repository and install locally:
+
+```bash
+git clone https://github.com/yourusername/yelp_final_project.git
+cd yelp_final_project
+pip install .
+
+```
+
+To install dependencies for running the Streamlit app only:
+
+```bash
+pip install -r requirements.txt
+```
+
+##3. Project Structure
+
+The repository follows a standard src-layout Python project structure:
+
+```css 
+yelp_final_project/
+├── pyproject.toml
+├── requirements.txt
+├── README.md
+├── src/
+│   └── yelp_final_project/
+│       ├── cleaning.py
+│       ├── analysis.py
+│       ├── streamlit_app.py
+│       └── __init__.py
+├── tests/
+├── docs/
+└── Tutorial.qmd
+
+```
+
+Key components:
+- cleaning.py: data loading and cleaning functions
+- analysis.py: summary statistics and analysis functions
+- streamlit_app.py: interactive Streamlit dashboard
+- docs/: Quarto documentation and tutorial
+

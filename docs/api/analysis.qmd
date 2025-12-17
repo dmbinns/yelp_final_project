@@ -4,20 +4,66 @@ title: "Data Analysis Module"
 
 ## Overview
 
-The cleaning module prepares raw Yelp API data for analysis by 
+The analysis module contains functions that summarize relationships
+between Yelp business characteristics and customer ratings.
+
+These functions are designed for exploratory data analysis and are used
+directly by the Streamlit app to generate tables and visualizations.
 
 ## Functions
 
-### `process_hours(df)`
+### Reviews vs Rating
 
-**Description:**  
-Converts raw Yelp hours data into numerical features such as:
-- total hours open per week
-- number of days open
-- late-night indicator
+```python
+reviews_vs_rating(df)
+```
 
-**Parameters:**
-- `df` (pandas.DataFrame): Raw Yelp business data
+This function summarizes how review volume relates to average customer
+ratings across businesses.
 
-**Returns:**
-- pandas.DataFrame with engineered features
+It groups businesses and computes:
+- Average rating
+- Average review count
+- Number of shops per group
+
+### Price vs Rating
+
+```python
+price_vs_rating(df)
+```
+This function examines whether price level is associated with higher or
+lower customer ratings.
+
+### City vs Rating
+
+```python
+city_vs_rating(df)
+```
+
+This function compares average ratings across cities in Utah and counts
+the number of shops per city.
+
+### Service Type vs Rating
+
+```python
+service_type_vs_rating(df)
+```
+
+This function evaluates whether service type (delivery, pickup, both, neither) 
+is associated with differences in customer ratings.
+
+### Second Most Common Category
+
+```python
+second_most_common_category(df)
+```
+second_most_common_category(df)
+
+This helper identifies the most common Yelp business category besides
+Ice Cream.
+
+## Purpose:
+All analysis functions:
+- Accept a cleaned pandas DataFrame
+- Perform data aggregation using pandas
+- Return summary tables

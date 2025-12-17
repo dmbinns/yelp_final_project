@@ -4,20 +4,53 @@ title: "Data Cleaning Module"
 
 ## Overview
 
-The cleaning module prepares raw Yelp API data for analysis by 
+The cleaning module prepares raw Yelp business data for analysis by
+standardizing columns, handling missing values, and creating derived
+variables used throughout the project.
+
+Raw Yelp data contains nested fields, inconsistent column names, and
+categorical values that are not immediately ready for analysis.
+This module makes sure the dataset is clean, consistent, and reproducible.
 
 ## Functions
 
-### `process_hours(df)`
+### Main Function: clean_data()
 
-**Description:**  
-Converts raw Yelp hours data into numerical features such as:
-- total hours open per week
-- number of days open
-- late-night indicator
+```python
+from yelp_final_project.cleaning import clean_data
+
+df_clean = clean_data()
+
+This function:
+-Loads the raw Yelp dataset
+-Applies all cleaning steps internally
+-Returns a cleaned pandas DataFrame ready for analysis
+
+### Supporting/Helper Functions:
+
+-load_data() — loads the raw CSV file
+-drop_columns() — removes unnecessary columns
+-convert_price() — converts price strings to numeric levels
+-clean_delivery() — standardizes delivery/pickup availability
+-sort_cities() — sorts and cleans city names
+
 
 **Parameters:**
 - `df` (pandas.DataFrame): Raw Yelp business data
 
 **Returns:**
 - pandas.DataFrame with engineered features
+
+
+## Output
+
+The cleaned dataset includes standardized columns such as:
+
+- name
+- city
+- rating
+- review_count
+- price_level
+- service_type
+
+This dataset is used by both the analysis module and the Streamlit app.
