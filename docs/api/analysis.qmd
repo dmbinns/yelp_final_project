@@ -31,6 +31,7 @@ It groups businesses and computes:
 ```python
 price_vs_rating(df)
 ```
+
 This function examines whether price level is associated with higher or
 lower customer ratings.
 
@@ -57,13 +58,14 @@ is associated with differences in customer ratings.
 ```python
 second_most_common_category(df)
 ```
-second_most_common_category(df)
 
-This helper identifies the most common Yelp business category besides
+This function identifies the most common Yelp business category besides
 Ice Cream.
 
 ## Purpose:
+
 All analysis functions:
+
 - Accept a cleaned pandas DataFrame
 - Perform data aggregation using pandas
 - Return summary tables

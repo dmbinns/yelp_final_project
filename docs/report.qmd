@@ -2,7 +2,7 @@
 title: "What Drives Yelp Ratings? An Analysis of Ice Cream Shops in Utah"
 author:
   - "Daniela Binns"
-  - "Lindsey Napierski"
+  - "Lindsey Allen"
 date: "December 17, 2025"
 format:
   html:
@@ -82,3 +82,8 @@ City-level analysis revealed substantial variation in average ratings across loc
 ![price level vs rating](graphs/cities.png)
 
 ---
+
+## Conclusion
+
+This project explored how several business characteristics relate to Yelp ratings for ice cream shops in Utah County and Salt Lake County using data collected from the Yelp Fusion API. Overall, the analysis suggests that while factors such as review volume, service type, and price level show some variation in average ratings, none exhibit a strong or consistent relationship with customer ratings. In particular, review volume does not appear to meaningfully predict rating outcomes, and differences across service types and price levels are relatively small. 
+In contrast, city location showed the greatest variation in average ratings, indicating that geographic context may play an important role in shaping consumer perceptions. This could potentially be due to differences in local competition, demographics, or consumer expectations. Future work could incorporate textual review analysis or temporal trends to further understand what drives customer satisfaction in local food businesses.
