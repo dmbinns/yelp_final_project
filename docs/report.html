@@ -6,11 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Daniela Binns">
-<meta name="author" content="Lindsey Allen">
-<meta name="dcterms.date" content="2025-12-17">
 
-<title>What Drives Yelp Ratings? An Analysis of Ice Cream Shops in Utah – Utah Ice Cream Shop Analysis</title>
+<title>report – Utah Ice Cream Shop Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -43,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5b4ad623e5705c0698d39aec6f10cf02.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -136,130 +133,17 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#introduction-and-motivation" id="toc-introduction-and-motivation" class="nav-link active" data-scroll-target="#introduction-and-motivation"><span class="header-section-number">1</span> Introduction and Motivation</a></li>
-  <li><a href="#project-overview-and-roadmap" id="toc-project-overview-and-roadmap" class="nav-link" data-scroll-target="#project-overview-and-roadmap"><span class="header-section-number">2</span> Project Overview and Roadmap</a></li>
-  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection"><span class="header-section-number">3</span> Data Collection</a></li>
-  <li><a href="#data-cleaning-and-preparation" id="toc-data-cleaning-and-preparation" class="nav-link" data-scroll-target="#data-cleaning-and-preparation"><span class="header-section-number">4</span> Data Cleaning and Preparation</a></li>
-  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis"><span class="header-section-number">5</span> Exploratory Data Analysis</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">6</span> Results</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">7</span> Conclusion</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">What Drives Yelp Ratings? An Analysis of Ice Cream Shops in Utah</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Authors</div>
-    <div class="quarto-title-meta-contents">
-             <p>Daniela Binns </p>
-             <p>Lindsey Allen </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">December 17, 2025</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
 
 
-</header>
 
-
-<section id="introduction-and-motivation" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="introduction-and-motivation"><span class="header-section-number">1</span> Introduction and Motivation</h2>
-<p>Ice cream is a widely enjoyed dessert across age groups, and consumers often rely on online reviews and ratings when deciding which ice cream shop to visit. Yelp is a popular online platform that allows patrons to leave reviews for local businesses, which are aggregated into an overall rating for each establishment. These ratings play a significant role in shaping consumer perception and decision-making.</p>
-<p>As frequent consumers of ice cream in the Utah County and Salt Lake County areas, this project sought to examine which elements of an ice cream shop’s Yelp profile are associated with higher or lower average ratings. Specifically, this analysis focused on the relationship between average rating and four key business characteristics: review volume, services offered (delivery and pickup), price level, and city location. Understanding these relationships provides insight into consumer behavior and may offer practical implications for local businesses.</p>
-<hr>
-</section>
-<section id="project-overview-and-roadmap" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="project-overview-and-roadmap"><span class="header-section-number">2</span> Project Overview and Roadmap</h2>
-<p>The development of this project was not linear. The initial project proposal involved the use of a different API and focused on music-related research questions rather than local businesses. However, early in the development process, several obstacles emerged. One of the intended APIs required a subscription fee that exceeded the project’s budget, while another API had discontinued the endpoints necessary to answer the proposed research questions.</p>
-<p>After encountering multiple setbacks, the project scope was reassessed, and a new direction was chosen. The Yelp Fusion API was identified as a viable alternative due to its accessibility and rich business-level data. This shift allowed the project to focus on a more localized and tangible research question centered on ice cream shops.</p>
-<p>The final project workflow consisted of obtaining an API key for the Yelp Fusion API, collecting data on ice cream shops across selected Utah cities, and developing a Python package to clean and analyze the data. Exploratory data analysis was conducted using the same package, and the results were communicated through a deployed Streamlit application. Comprehensive documentation and a user tutorial were created and hosted on GitHub Pages to demonstrate how others could replicate the analysis using the provided tools.</p>
-<hr>
-</section>
-<section id="data-collection" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="data-collection"><span class="header-section-number">3</span> Data Collection</h2>
-<p>All data used in this project were obtained from the Yelp Fusion API, which is Yelp’s publicly available API for developers. Data were collected using the /businesses/search endpoint, which allows users to query businesses by keyword, category, location, and price level. For this analysis, the category Ice Cream &amp; Frozen Yogurt was used to restrict the dataset to ice cream-related businesses.</p>
-<p>A Python function was developed to paginate through multiple cities in Utah County and Salt Lake County, ensuring comprehensive data collection within API limitations. The cities included in the data collection process were Provo, Orem, Lehi, American Fork, Pleasant Grove, Spanish Fork, Springville, Lindon, Highland, Salt Lake City, West Valley City, Sandy, Draper, West Jordan, South Jordan, Midvale, and Murray.</p>
-<p>The collected data were saved as a CSV file for further processing. The raw dataset contained 2,729 rows and 30 columns, with each row representing a unique ice cream business. Key variables included business identifiers, review counts, ratings, price level, transaction types, geographic information, and operational attributes.</p>
-<hr>
-</section>
-<section id="data-cleaning-and-preparation" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="data-cleaning-and-preparation"><span class="header-section-number">4</span> Data Cleaning and Preparation</h2>
-<p>A primary objective of the Python package developed for this project, yelp_final_project, was to transform raw Yelp API data into a format suitable for analysis. The first data-cleaning step involved converting the price variable from symbolic dollar signs into a numeric integer by counting the number of dollar symbols associated with each business.</p>
-<p>Next, a service type variable was created to capture whether a business offered delivery, pickup, both, or neither. This classification was derived from the transactions column and allowed for more meaningful comparisons across service offerings.</p>
-<p>Additional cleaning steps included standardizing column names by converting them to lowercase and replacing spaces with underscores, removing columns that were not relevant to the analysis, and sorting the data by city. These steps resulted in a cleaned dataset that was easier to interpret and analyze. A preview of the final cleaned dataset is shown in Table X.</p>
-<hr>
-</section>
-<section id="exploratory-data-analysis" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="exploratory-data-analysis"><span class="header-section-number">5</span> Exploratory Data Analysis</h2>
-<p>The second major function of the Python package was to support exploratory data analysis (EDA). The analysis focused on how average Yelp ratings relate to review volume, service type, price level, and city location. To facilitate comparison, the data were aggregated by each feature of interest, and summary tables were created.</p>
-<p>To examine the relationship between review volume and rating, businesses were grouped by city, and the average rating and average review count were computed. A scatter plot was generated using the Streamlit application to assess potential trends between review count and average rating.</p>
-<p>Service type was analyzed by grouping businesses according to their delivery and pickup options and calculating the average rating for each group. These results were visualized using a bar chart. Similarly, price level was analyzed by computing the average rating for each price category and visualizing the results with a bar chart.</p>
-<p>Finally, city-level analysis was conducted by grouping businesses by city and calculating average ratings. Cities were ranked by rating, and the results were visualized using both bar charts and a geographic heat map that incorporated latitude and longitude data. The heat map displayed business locations, with color indicating rating and bubble size representing review volume.</p>
-<hr>
-</section>
-<section id="results" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="results"><span class="header-section-number">6</span> Results</h2>
-<p>This analysis examined the impact of review volume, service type, price level, and city on the average rating of ice cream shops. Among these variables, city location exhibited the strongest association with average rating.</p>
-<p>No clear trend was observed between review volume and rating. As review counts increased, ratings continued to exhibit a wide and consistent spread, indicating that a higher number of reviews does not necessarily correspond to higher or lower ratings on average.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="graphs/review_volume.png" class="img-fluid figure-img"></p>
-<figcaption>Scatter plot of review count vs rating</figcaption>
-</figure>
-</div>
-<p>Regarding service type, businesses offering both delivery and pickup, as well as those offering delivery only, tended to have slightly higher average ratings than businesses offering pickup only. However, the difference in average ratings across service types was less than half a point, suggesting that while delivery may offer a small advantage, it is not a dominant factor.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="graphs/service_type.png" class="img-fluid figure-img"></p>
-<figcaption>Bar Graph of service type vs rating</figcaption>
-</figure>
-</div>
-<p>Price level also showed no clear linear relationship with rating. The lowest average ratings were observed for businesses in the lowest and third price categories, while the highest average ratings were associated with the second and highest price levels. This pattern may reflect consumer expectations regarding quality at higher price points, though the limited number of businesses at the highest price level should be considered when interpreting these results.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="graphs/price.png" class="img-fluid figure-img"></p>
-<figcaption>price level vs rating</figcaption>
-</figure>
-</div>
-<p>City-level analysis revealed substantial variation in average ratings across locations. This finding suggests that geographic factors, local competition, or consumer preferences may play a role in shaping ratings. The highest-rated cities include Lake Shore, Morgan, West Valley City, and Holladay.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="graphs/cities.png" class="img-fluid figure-img"></p>
-<figcaption>price level vs rating</figcaption>
-</figure>
-</div>
-<hr>
-</section>
-<section id="conclusion" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">7</span> Conclusion</h2>
-<p>This project explored how several business characteristics relate to Yelp ratings for ice cream shops in Utah County and Salt Lake County using data collected from the Yelp Fusion API. Overall, the analysis suggests that while factors such as review volume, service type, and price level show some variation in average ratings, none exhibit a strong or consistent relationship with customer ratings. In particular, review volume does not appear to meaningfully predict rating outcomes, and differences across service types and price levels are relatively small. In contrast, city location showed the greatest variation in average ratings, indicating that geographic context may play an important role in shaping consumer perceptions. This could potentially be due to differences in local competition, demographics, or consumer expectations. Future work could incorporate textual review analysis or temporal trends to further understand what drives customer satisfaction in local food businesses.</p>
-
-
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
