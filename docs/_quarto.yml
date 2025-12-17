@@ -6,19 +6,19 @@ website:
   title: "Utah Ice Cream Shop Analysis"
   navbar:
     left:
-      - href: index.qmd
+      - href: index.html
         text: Home
-      - href: report.qmd
+      - href: report.html
         text: Report
-      - href: tutorial.qmd
+      - href: tutorial.html
         text: Tutorial
       - text: Package Elements
         menu:
-          - href: api/cleaning.qmd
+          - href: api/cleaning.html
             text: Data Cleaning
-          - href: api/analysis.qmd
+          - href: api/analysis.html
             text: Analysis
-          - href: api/visualization.qmd
+          - href: api/visualization.html
             text: Visualization
 
 format:
